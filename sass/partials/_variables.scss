@@ -1,31 +1,97 @@
 $backdrop__filter--privacy: blur(10px) contrast(25%);
+$bg__about-img:
+    "../img/bgs/bg_1.jpg";
 $bg__blend--type: multiply;
+$bg__blend--multiply: multiply;
+$bg__case-img:
+    "../img/case_study/case_study_1.jpg",
+    "../img/case_study/case_study_2.jpg";
+$bg__casecat-img:
+    "../img/services/services_1.jpg",
+    "../img/services/services_2.jpg",
+    "../img/services/services_3.jpg",
+    "../img/services/services_4.jpg",
+    "../img/services/services_5.jpg",
+    "../img/services/services_6.jpg",
+    "../img/services/services_7.jpg",
+    "../img/services/services_8.jpg",
+    "../img/services/services_9.jpg",
+    "../img/services/services_10.jpg";
+$bg__case-study-img:
+    "../img/bgs/bg_1.jpg";
 $bg__classes:
     "error",
     "comingsoon",
-    "privacy";
+    "privacy",
+    "index",
+    "navcat",
+    "services",
+    "casecat",
+    "case-study",
+    "case",
+    "about",
+    "user";
 $bg__comingsoon-img: "../img/finance.jpg";
 $bg__error-img: "../img/finance.jpg";
+$bg__index-img: "../img/bgs/bg_1.jpg";
+$bg__navcat-img: 
+    "../img/navcats/navcat_1.jpg",
+    "../img/navcats/navcat_2.jpg",
+    "../img/navcats/navcat_3.jpg",
+    "../img/navcats/navcat_4.jpg",
+    "../img/navcats/navcat_5.jpg",
+    "../img/navcats/navcat_6.jpg",
+    "../img/navcats/navcat_7.jpg",
+    "../img/navcats/navcat_8.jpg",
+    "../img/navcats/navcat_9.jpg",
+    "../img/navcats/navcat_10.jpg",
+    "../img/navcats/navcat_11.jpg";
 $bg__privacy-img: "../img/privacy.jpg";
+$bg__services-img: "../img/bgs/bg_1.jpg";
+$bg__user-img: 
+    "../img/bgs/bg_1.jpg",
+    "../img/triangles.jpg";
 $bg__aoa:
     $bg__error-img,
     $bg__comingsoon-img,
-    $bg__privacy-img;
+    $bg__privacy-img,
+    $bg__index-img,
+    $bg__navcat-img,
+    $bg__services-img,
+    $bg__casecat-img,
+    $bg__case-study-img,
+    $bg__case-img,
+    $bg__about-img,
+    $bg__user-img;
 $body__min-height: 100%;
-$color__bg-1: #fff;
+$border-param: 1px solid transparent;
+$color__bg-1: #f4f4f4;
 $color__dark: #333;
 $color__dark-blue: #191970;
+$color__gray: #aaa;
 $color__green: #178f87;
+$color__light-gray: #ddd;
 $color__light-green: #20bdb2;
 $color__red: #ff565c;
 $color__transparent: transparent;
 $color__white: #fff;
+$filter-brightness: brightness(0.7);
 $font-logo__family: 'Lato';
-$font-logo__size: 32px;
+$font-logo__size: 28px;
 $font-main__family: 'Lato';
 $font-main__size: 16px;
+$font-thin__weight: 100;
+$icon__font-size: 25px;
+$icon__font-size--big: 50px;
+$nav-item__padding-x:10px;
+$nav-item__padding-y:5px;
+$nav-menu__border: 1px solid $color__green;
+$nav-menu__padding: 5px;
+$navbar-icon__size:   0.25rem;
 $privacy-container__border: 1px solid $color__bg-1;
 $privacy-container__margin: 50px;
 $privacy-container__radius: 20px;
 $section__min-height: 100vh;
 $text__shadow: 0 0 3px $color__dark;
+$text-small__size: 14px; 
+$textarea__height: 75px;
