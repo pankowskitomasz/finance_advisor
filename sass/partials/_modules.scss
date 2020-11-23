@@ -7,6 +7,16 @@
 %bg-blend{
     @include background-blend($bg__blend--type, $color__bg-1);
 }
+%bg-scroll{
+    background-attachment: scroll;
+    background-position: center;
+}
+.about{
+    &-s1{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+}
 .bg{
     &-dark{
         background-color: $color__dark !important;
@@ -17,6 +27,9 @@
     &-green{
         background-color: $color__green !important;
     }
+    &-light-gray{
+        background-color: $color__light-gray !important;
+    }
     &-light-green{
         background-color: $color__light-green !important;
     }
@@ -26,8 +39,90 @@
     &-transparent{
         background-color: transparent !important;
     }
+    &-white{
+        background-color: $color__white !important;
+    }
 }
-
+.border{
+    &-b{
+        border-bottom: $border-param;
+    }
+    &-gray{
+        border-color: $color__gray !important;
+    }
+    &-green{
+        border-color: $color__green !important;
+    }
+    &-l{
+        border-left: $border-param;
+    }
+    &-light-green{
+        border-color: $color__light-green !important;
+    }
+    &-r{
+        border-right: $border-param;
+    }
+    &-t{
+        border-top: $border-param;
+    }
+    border: $border-param;
+}
+.casecat{
+    &-s1{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+    &-s2{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+        background-position: right;
+    }
+    &-s3{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+    &-s4{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+    &-s5{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+    &-s6{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+    &-s7{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+    &-s8{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+        background-position: right;
+    }
+    &-s9{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+    &-s10{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+}
+.case{
+    &-s1{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+    &-study{
+        &-s1{
+            @extend %bg-scroll;
+            background-blend-mode: $bg__blend--multiply;
+        }
+    }
+}
 .comingsoon{
     &-s1{
         @extend %bg-blend;
@@ -38,11 +133,39 @@
         @extend %bg-blend;
     }
 }
+.flex{
+    &-wrap{
+        flex-wrap: wrap !important;
+    }
+    display: flex;
+}
+.font{
+    &-bold{
+        font-weight: 900;
+    }
+    &-logo{
+        @include set-font-params($font-logo__family,$font-logo__size);
+        display: inline-block;
+        font-variant: small-caps;
+        font-weight: 100 !important;
+    }
+    &-menu{
+        @include set-font-params($font-main__family,$font-main__size);
+    }
+    &-thin{
+        font-weight: $font-thin__weight;
+    }
+}
 .header{
     position: absolute;
     width: 100%;
 }
 .hover{
+    &-brightness{
+        &:hover{
+            filter: $filter-brightness;
+        }
+    }
     &-darken{
         &:hover{
             filter: brightness(0.7);
@@ -69,6 +192,112 @@
         }
     }
 }
+.icon{
+    &-big{
+        font-size: $icon__font-size--big!important;
+    }
+    font-size: $icon__font-size !important;
+}
+.index{
+    &-s1{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+}
+.minh{
+    &-25vh{
+        min-height: 25vh !important;
+    }
+    &-50vh{
+        min-height: 50vh !important;
+    }
+    &-60vh{
+        min-height: 60vh !important;
+    }
+    &-75vh{
+        min-height: 75vh !important;
+    }
+    &-100vh{
+        min-height: 100vh !important;
+    }
+    &-150px{
+        min-height: 150px !important;
+    }
+    &-340px{
+        min-height: 340px !important;
+    }
+}
+.nav{
+    &-item{
+        & a{
+            padding: $nav-item__padding-y $nav-item__padding-x !important;
+        }
+    }
+}
+.navbar{
+    &-toggler{
+        &-icon{
+            background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='rgb(23 143 135)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !important;
+        }
+    }
+}
+.navcat{
+    &-s1{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+    &-s2{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+    &-s3{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+    &-s4{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+    &-s5{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+    &-s6{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+    &-s7{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+    &-s8{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+    &-s9{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+    &-s10{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+    &-s11{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+
+}
+.opacity{
+    &-8{
+        opacity: 0.8;
+    }
+}
+.outline{
+    &-none{
+        outline: none !important;
+    }
+}
 .privacy{
     &-container{
         background-color: $color__transparent !important;
@@ -82,29 +311,19 @@
         @extend %bg-blend;
     }
 }
-.font{
-    &-bold{
-        font-weight: 700;
-    }
-    &-logo{
-        @include set-font-params($font-logo__family,$font-logo__size);
-        display: inline-block;
-        font-variant: small-caps;
-        font-weight: 900;
-    }
-    &-menu{
-        @include set-font-params($font-main__family,$font-main__size);
+.services{
+    &-s1{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
     }
 }
-.navbar{
-    &-toggler{
-        &-icon{
-            background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='rgb(255 86 92)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !important;
-        }
-    }
-}
-
 .text{
+    &-dark{
+        color: $color__dark !important;
+    }
+    &-gray{
+        color: $color__gray !important;
+    }
     &-green{
         color: $color__green !important;
     }
@@ -117,7 +336,83 @@
     &-shadow{
         text-shadow: $text__shadow;
     }
+    &-small{
+        font-size: $text-small__size;
+    }
     &-white{
         color: $color__white !important;
+    }
+}
+.user{
+    &-s1{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+    &-s2{
+        @extend %bg-scroll;
+        background-blend-mode: $bg__blend--multiply;
+    }
+}
+body{
+    background-color: $color__bg-1!important;
+}
+textarea{
+    height: $textarea__height;
+    resize: none;
+}
+@media all and (max-width: 639px){
+    .nav{
+        &-item{
+            width:100%;
+        }
+        &-menu{
+            background-color: $color__white !important;
+            opacity: 0.8;
+            padding: $nav-menu__padding !important;
+        }
+    }
+}
+
+@media all and (min-width: 640px){
+    .medium{
+        &-minh{
+            &-25vh{
+                min-height: 25vh !important;
+            }
+            &-50vh{
+                min-height: 50vh !important;
+            }
+            &-60vh{
+                min-height: 60vh !important;
+            }
+            &-75vh{
+                min-height: 75vh !important;
+            }
+            &-100vh{
+                min-height: 100vh !important;
+            }
+        }
+    }
+}
+
+@media all and (min-width: 1024px){
+    .large{
+        &-minh{
+            &-25vh{
+                min-height: 25vh !important;
+            }
+            &-50vh{
+                min-height: 50vh !important;
+            }
+            &-60vh{
+                min-height: 60vh !important;
+            }
+            &-75vh{
+                min-height: 75vh !important;
+            }
+            &-100vh{
+                min-height: 100vh !important;
+            }
+        }
     }
 }
