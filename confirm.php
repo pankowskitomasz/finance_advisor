@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
     <link rel="icon" href="img/favicon.png">
     <link rel="stylesheet" type="text/css" href="css/styles.min.css">
-    <title>Finance Advisor | Sign in</title>
+    <title>Finance Advisor | Best finance advisors</title>
 </head>
 <body>
     <header class="header bg-white shadow padding-1">
@@ -58,7 +59,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="user.html" class="text-green font-bold hover-light-green">
+                            <a href="user.php" class="text-green font-bold hover-light-green">
                                 <span class="fa fa-user-o"></span>
                             </a>
                         </li>
@@ -68,36 +69,62 @@
         </nav>
     </header>
     <main>
-        <section class="user-s1 bg-light-green grid-x grid-padding-x align-center align-bottom minh-340px">
-            <div class="cell small-10 medium-6 text-center text-shadow padding-1">
-                <h2 class="h3 text-white font-bold">Sign in</h2>   
-                <p class="lead text-white font-thin">
-                    Sign in to get access to our online services.
-                </p>          
-            </div>
-        </section>
-        <section class="user-s2 minh-75vh grid-x align-middle align-center">            
-            <div class="cell small-12 medium-8 padding-1 grid-x align-center">
-                <form class="border border-gray padding-1">
-                    <label>User Name</label>
-                    <input type="text"
-                        class="bg-transparent margin-bottom-1"
-                        maxlength="80"
-                        placeholder="User Name...">
-                    <label>Email</label>
-                    <input type="password"
-                        class="bg-transparent margin-bottom-1"
-                        maxlength="80"
-                        placeholder="Password...">
-                    <div class="text-right">
-                        <input type="reset"
-                            class="button hollow secondary"
-                            value="Clear">
-                        <input type="submit"
-                            class="button hollow secondary"
-                            value="Login">
+        <section class="user-s2 minh-100vh grid-x align-middle align-center">            
+            <div class="cell small-10 medium-7 large-6 padding-1 grid-x align-center">
+                <div class="card padding-2 text-center border border-gray mt-top">
+                    <h4>Message sent!</h4>
+                    <table class="table table-hover border text-left font-menu bg-light opacity-8">
+                        <thead class="thead-light">
+                            <tr>
+                                <th colspan="2" class="text-center">Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Full name</td>
+                                <td>
+                                <?php 
+                                    if(isset($_POST['fname']))
+                                        echo htmlspecialchars($_POST['fname']);
+                                ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Phone</td>
+                                <td>
+                                <?php 
+                                    if(isset($_POST['fphone']))
+                                        echo htmlspecialchars($_POST['fphone']);
+                                ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>
+                                <?php 
+                                    if(isset($_POST['fmail']))
+                                        echo htmlspecialchars($_POST['fmail']);
+                                ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Message</td>
+                                <td>
+                                <?php 
+                                    if(isset($_POST['fmsg']))
+                                        echo htmlspecialchars($_POST['fmsg']);
+                                ?>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="w-100">
+                        <a href="contact.html" 
+                            class="button hollow secondary">
+                            OK
+                        </a>
                     </div>
-                </form>
+                </div>
             </div>
         </section>
     </main>

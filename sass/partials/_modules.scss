@@ -159,6 +159,7 @@
 .header{
     position: absolute;
     width: 100%;
+    z-index:10;
 }
 .hover{
     &-brightness{
@@ -202,6 +203,13 @@
     &-s1{
         @extend %bg-scroll;
         background-blend-mode: $bg__blend--multiply;
+    }
+}
+.m{
+    &t{
+        &-top{
+            margin-top: $privacy-container__margin-top;
+        }
     }
 }
 .minh{
@@ -298,13 +306,18 @@
         outline: none !important;
     }
 }
+.p{
+    &t-1{
+        padding-top: 10px;
+    }
+}
 .privacy{
     &-container{
         background-color: $color__transparent !important;
         backdrop-filter: $backdrop__filter--privacy;
         border: $privacy-container__border;
         border-radius: $privacy-container__radius;
-        margin-top: $privacy-container__margin;
+        margin-top: $privacy-container__margin-top;
         margin-bottom: $privacy-container__margin;
     }
     &-s1{
@@ -316,6 +329,9 @@
         @extend %bg-scroll;
         background-blend-mode: $bg__blend--multiply;
     }
+}
+.shadow{
+    box-shadow: $box-shadow;
 }
 .text{
     &-dark{
@@ -351,6 +367,11 @@
     &-s2{
         @extend %bg-scroll;
         background-blend-mode: $bg__blend--multiply;
+    }
+}
+.w{
+    &-100{
+        width: 100%;
     }
 }
 body{
