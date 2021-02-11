@@ -1,3 +1,123 @@
+<?php
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();   
+}
+
+include_once "php/comm.php";
+include_once "php/db.php";
+include_once "php/t_text_list.php";
+include_once "php/t_message.php";
+include_once "php/t_user.php";
+
+//to remove after pub
+//include_once "php/support.php";
+//createAdminAccount("password","admin@mussodent.com","9731");
+
+if(isset($_POST["username"])
+&& isset($_POST["userpass"])){
+    DatabaseConnect();
+    $usr = new TUser($GLOBALS['connection']);   
+    $usr->getByName(htmlspecialchars($_POST["username"]));
+    if($usr->getData("username")===htmlspecialchars($_POST['username'])
+    && $usr->getData("password")===sha1(htmlspecialchars($_POST['userpass']))
+    ){
+        $_SESSION["UserLogged"] = $usr->getData("username");
+    }
+}
+
+if(isset($_SESSION["UserLogged"])){
+    //reading view config
+    if(isset($_POST["login"])){
+        $_SESSION["view"] = "dashboard";
+    }
+    if(isset($_POST["cases"])){
+        $_SESSION["view"] = "cases";
+    }
+    if(isset($_POST["caseinfo"])){
+        $_SESSION["view"] = "caseinfo";
+    }
+    if(isset($_POST["casesearch"])){
+        $_SESSION["view"] = "casesearch";
+    }
+    if(isset($_POST["dashboard"])){
+        $_SESSION["view"] = "dashboard";
+    }
+    if(isset($_POST["editcase"])){
+        $_SESSION["view"] = "editcase";
+    }
+    if(isset($_POST["edituser"])){
+        $_SESSION["view"] = "edituser";
+    }
+    if(isset($_POST["msginfo"])){
+        $_SESSION["view"] = "msginfo";
+    }
+    if(isset($_POST["msgsearch"])){
+        $_SESSION["view"] = "msgsearch";
+    }
+    if(isset($_POST["messages"])){
+        $_SESSION["view"] = "messages";
+    }
+    if(isset($_POST["users"])){
+        $_SESSION["view"] = "users";
+    }
+    if(isset($_POST["logout"])){
+        $_SESSION["view"] = "logout";
+    }    
+    //template selection and config
+    if(isset($_SESSION["view"])){
+        switch($_SESSION["view"]){
+            case "cases":
+                $_SESSION["viewTemplate"] = "templates/tmp_cases.php";
+                $_SESSION["CurrentPage"]=1;
+                break;
+            case "caseinfo":
+                $_SESSION["viewTemplate"] = "templates/tmp_case_info.php";
+                $_SESSION["CurrentPage"]=1;
+                break;
+            case "casesearch":
+                $_SESSION["viewTemplate"] = "templates/tmp_cases.php";
+                $_SESSION["CurrentPage"]=1;
+                break;
+            case "dashboard":
+                $_SESSION["viewTemplate"] = "templates/tmp_dashboard.php";
+                $_SESSION["CurrentPage"]=1;
+                break;
+            case "editcase":
+                $_SESSION["viewTemplate"] = "templates/tmp_editcase.php";
+                $_SESSION["CurrentPage"]=1;
+                break;
+            case "edituser":
+                $_SESSION["viewTemplate"] = "templates/tmp_edituser.php";
+                break;
+            case "msginfo":
+                $_SESSION["viewTemplate"] = "templates/tmp_message_info.php";
+                $_SESSION["CurrentPage"]=1;
+                break;
+            case "msgsearch":
+                $_SESSION["viewTemplate"] = "templates/tmp_messages.php";
+                $_SESSION["CurrentPage"]=1;
+                break;
+            case "messages":
+                $_SESSION["viewTemplate"] = "templates/tmp_messages.php";
+                $_SESSION["CurrentPage"]=1;
+                break;
+            case "users":
+                $_SESSION["viewTemplate"] = "templates/tmp_users.php";
+                $_SESSION["CurrentPage"]=1;
+                break;
+            default: 
+                $_SESSION["viewTemplate"] = "templates/tmp_login.php";     
+                $_SESSION = array();
+                session_destroy(); 
+        }
+    }
+}
+else{
+    $_SESSION["viewTemplate"] = "templates/tmp_login.php";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +125,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
     <link rel="icon" href="img/favicon.png">
     <link rel="stylesheet" type="text/css" href="css/styles.min.css">
-    <title>Finance Advisor | Sign in</title>
+    <title>Finance Advisor | Best finance advisors</title>
 </head>
 <body>
     <header class="header bg-white shadow padding-1">
@@ -58,7 +178,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="user.html" class="text-green font-bold hover-light-green">
+                            <a href="user.php" class="text-green font-bold hover-light-green">
                                 <span class="fa fa-user-o"></span>
                             </a>
                         </li>
@@ -67,40 +187,16 @@
             </div>
         </nav>
     </header>
-    <main>
-        <section class="user-s1 bg-light-green grid-x grid-padding-x align-center align-bottom minh-340px">
-            <div class="cell small-10 medium-6 text-center text-shadow padding-1">
-                <h2 class="h3 text-white font-bold">Sign in</h2>   
-                <p class="lead text-white font-thin">
-                    Sign in to get access to our online services.
-                </p>          
-            </div>
-        </section>
-        <section class="user-s2 minh-75vh grid-x align-middle align-center">            
-            <div class="cell small-12 medium-8 padding-1 grid-x align-center">
-                <form class="border border-gray padding-1">
-                    <label>User Name</label>
-                    <input type="text"
-                        class="bg-transparent margin-bottom-1"
-                        maxlength="80"
-                        placeholder="User Name...">
-                    <label>Email</label>
-                    <input type="password"
-                        class="bg-transparent margin-bottom-1"
-                        maxlength="80"
-                        placeholder="Password...">
-                    <div class="text-right">
-                        <input type="reset"
-                            class="button hollow secondary"
-                            value="Clear">
-                        <input type="submit"
-                            class="button hollow secondary"
-                            value="Login">
-                    </div>
-                </form>
-            </div>
-        </section>
-    </main>
+    <main class="minh-100vh">
+        <?php
+        if(isset($_SESSION["viewTemplate"])){
+            include $_SESSION["viewTemplate"]; 
+        }
+        else{
+            include "templates/tmp_login.php";                            
+        }
+        ?>
+    </main>   
     <footer class="grid-x grid-padding-x align-center align-middle bg-green text-white padding-1">
         <div class="cell small-12 padding-1 grid-x">
             <div class="cell small-12 flex text-left">
